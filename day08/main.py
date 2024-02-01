@@ -1,9 +1,10 @@
 import re
 from enum import Enum
+from typing import Iterator
 
 from commons import read_input_file
 
-Operations = Enum("Operation", ["RECT", "ROTATE_ROW", "ROTATE_COL"])
+Operations = Enum("Operations", ["RECT", "ROTATE_ROW", "ROTATE_COL"])
 
 
 def parse_operation(line: str) -> tuple:
@@ -16,7 +17,7 @@ def parse_operation(line: str) -> tuple:
             return (Operations.ROTATE_COL, [int(v) for v in re.findall(r"(\d+)", line)])
 
 
-def parse_operations(lines: list[str]) -> list[tuple]:
+def parse_operations(lines: Iterator[str]) -> list[tuple]:
     return [parse_operation(line) for line in lines]
 
 
@@ -47,7 +48,7 @@ def execute_operrations(
 
 
 def solve(
-    lines: list[str],
+    lines: Iterator[str],
 ) -> list[list[str]]:
     operations = parse_operations(lines)
     return execute_operrations(operations)

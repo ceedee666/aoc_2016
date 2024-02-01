@@ -1,5 +1,6 @@
 import string
 from collections import Counter
+from typing import Iterator
 
 from commons import read_input_file
 
@@ -13,7 +14,7 @@ def parse_line(line: str) -> tuple[str, str, int]:
     return "".join(letters), checksum, int(id)
 
 
-def parse_input(lines: list[str]) -> list[tuple[str, str, int]]:
+def parse_input(lines: Iterator[str]) -> list[tuple[str, str, int]]:
     return [parse_line(line) for line in lines]
 
 
@@ -38,7 +39,7 @@ def decode(room: tuple[str, str, int]) -> tuple[str, str, int]:
     return decoded, checksum, id
 
 
-def solve(lines: list[str], part2: bool = False) -> int:
+def solve(lines: Iterator[str], part2: bool = False) -> int:
     rooms = parse_input(lines)
     real_rooms = [r for r in rooms if is_real_room(r)]
     if not part2:

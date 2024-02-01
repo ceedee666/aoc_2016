@@ -1,9 +1,10 @@
 from collections import Counter
+from typing import Iterator
 
 from commons import read_input_file
 
 
-def solve(lines: list[str], part2: bool = False) -> str:
+def solve(lines: Iterator[str], part2: bool = False) -> str:
     message = ""
     transposed = zip(*lines)
     for line in transposed:

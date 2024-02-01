@@ -1,3 +1,5 @@
+from typing import Iterator
+
 from commons import read_input_file
 
 
@@ -6,7 +8,7 @@ def manhatten_distance(pos: complex, start: complex = complex(0, 0)) -> int:
 
 
 def solve(
-    lines: list[str],
+    lines: Iterator[str],
     start: complex = complex(0, 0),
     dir: complex = complex(0, 1),
     part2: bool = False,
@@ -15,7 +17,7 @@ def solve(
     pos = start
     visited.add(pos)
 
-    moves = [(instr[0], int(instr[1:])) for instr in lines[0].split(", ")]
+    moves = [(instr[0], int(instr[1:])) for instr in next(lines).split(", ")]
     for turn, dist in moves:
         match turn:
             case "R":

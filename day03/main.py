@@ -1,3 +1,5 @@
+from typing import Iterator
+
 from commons import read_input_file
 
 
@@ -7,7 +9,7 @@ def is_possible(triangle: list[int]) -> bool:
 
 
 def solve_part_1(
-    lines: list[str],
+    lines: Iterator[str],
 ) -> int:
     triangles = [list(map(int, line.split())) for line in lines]
     possible = [t for t in triangles if is_possible(t)]
@@ -15,7 +17,7 @@ def solve_part_1(
 
 
 def solve_part_2(
-    lines: list[str],
+    lines: Iterator[str],
 ) -> int:
     input = [list(map(int, line.split())) for line in lines]
     values = [v[0] for v in input] + [v[1] for v in input] + [v[2] for v in input]

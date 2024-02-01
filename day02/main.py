@@ -1,3 +1,5 @@
+from typing import Iterator
+
 from commons import read_input_file
 
 KEYPAD = {
@@ -31,7 +33,7 @@ DIRS = {"U": 1j, "D": -1j, "L": -1, "R": 1}
 
 
 def solve(
-    lines: list[str],
+    lines: Iterator[str],
     start: complex = complex(1, 1),
     part2: bool = False,
 ) -> str:

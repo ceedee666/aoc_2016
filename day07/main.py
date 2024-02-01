@@ -1,4 +1,5 @@
 import re
+from typing import Iterator
 
 from commons import read_input_file
 
@@ -44,7 +45,7 @@ def supports_ssl(ip: str) -> bool:
 
 
 def solve(
-    lines: list[str],
+    lines: Iterator[str],
 ) -> tuple[int, int]:
     ips_supporting_tls = [ip for ip in lines if supports_tls(ip)]
     ips_supporting_ssl = [ip for ip in lines if supports_ssl(ip)]

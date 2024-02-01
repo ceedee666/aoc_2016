@@ -38,8 +38,9 @@ def solve(line: str, part2: bool = False) -> int:
 
 
 if __name__ == "__main__":
-    print("The length of the decoded file is", solve(read_input_file("input.txt")[0]))
+    line = next(read_input_file("input.txt"))
+    print("The length of the decoded file is", solve(line))
     print(
         "The length of the decoded file is",
-        solve(read_input_file("input.txt")[0], True),
+        solve(line, True),
     )
